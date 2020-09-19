@@ -1,0 +1,175 @@
+/* Pour meilleure compatibilité des anciens navigateurs */
+header, nav, article, footer, address { display: block; }
+
+/* Typographie */
+
+body { /* Pour l'élément body */
+    /* prop CSS à compléter */ background-color: #a89f96; /* la couleur de fond de la page */
+    font-family:  Arial, verdana, sans-serif; /* la famille de police par défaut du document */
+    font-size:0.75em; /* taille de police de base */
+    line-height:1.4; /* hauteur de ligne de base */
+    color: black;/* couleur par défaut du texte */
+}
+
+/* Me demander : ici le sélecteur  */
+h1,h2,h3{  /* pour tout les titres */
+    font-weight: normal; /* graisse des titres */
+    margin:0;/* réinitialisation des marges des titres */
+}
+
+h2{ /* pour les titres de niveau 2 */
+    color: #d4b48e; /* couleur */
+    font-size: 2.5em; /* taille de police */
+    line-height: 1; /* hauteur de ligne */
+    margin: 10px 50px;
+    padding: 0;/* padding et marge à ajuster */
+}
+
+h3{ /* Pour les titres de niveau 3 */
+    font-size: 1em; /* Taille de police */
+    margin: 10px 50px;
+    padding: 0;/* padding et marge à ajuster */
+
+ text-decoration: underline/* filet sous le texte */
+/* mise en capitale du texte */
+}
+
+body>p{ /* pour les paragraphes */
+
+    text-indent: unset;/* retrai de 1re ligne */
+    margin: 10px 50px;
+    padding: 0;/* padding et marge à ajuster */
+
+}
+
+
+
+/* Layout page */
+
+body { /* Pour l'élément body */
+    width: 924px;/* largeur 188+642+94 = 924 */
+    margin: 0 auto; /* centrage */
+    /* padding et marge à ajuster */
+
+    /* fond : footer - image - bords */
+    background-image:  url(images-interface/bg-footer.png), url(images-interface/bg-page.jpg), url(images-interface/bg-ombre.png) ;
+    background-repeat: repeat-x, no-repeat , repeat-y;
+    background-position: bottom center, top center, top center;
+}
+
+/* header, me demander pour les sélecteur */
+
+body>header>img{ /* L'image (IMG) qui est dans le HEADER de BODY */
+    border: 10px;/* bord blanc de 10 pixels */
+    border-color: white;
+}
+
+body>header{ /* l’élément HEADER de BODY */
+    position: relative; /* le mettre en position relative pour qu'il serve de "base" à la position absolue de la navigation */
+}
+
+body>header>nav { /* l’élément NAV de HEADER de BODY */
+    position: absolute; /* positionné en absolu */
+    top: 100px; /* coordonner à ajuster */
+    left: 500px;
+    /* fixer sa largeur (à ajuster) */
+}
+
+body>header>nav>a.link{ /* les éléments A (qui sont des liens) dans la NAV de HEADER de BODY */
+    background-position: 0 0; /* utilisation du CSS Sprite (décale le fond) */
+}
+
+body>header>nav>a{ /* les éléments A (qui sont des liens et survolés) dans la NAV de HEADER de BODY */
+    background-position: 0 -60px; /* utilisation du CSS Sprite (décale le fond) */
+}
+
+/* Titre en image */
+
+body>header>h1{ /* l'élément H1 (de BODY ?) */
+/* technique standard de remplacement de texte par une image */
+    background: transparent url(images-interface/bg-titre-principal.png) no-repeat; /* l'image à afficher */
+    width:642px; /* ses dimensions exactes ! */
+    height:150px ;
+    text-indent: -9999px; /* cache le texte en mettant une valeur extrême à text-indent */
+}
+
+/* premier paragraphe */
+
+body>p:first-of-type { /* sélecteur qui trouve le 1er paragraphe (P) qui est un enfant direct de BODY */
+    font-size:  1.5em; /* taille de police */
+    line-height:  1.2; /* hauteur de ligne */
+    text-align: left; /* justification du texte */
+    margin: 50px;
+    padding: 50px;/* padding et marge à ajuster */
+
+    vertical-align: 0px;/* Suprime le retrait de 1re ligne mit par défaut (le met à 0) */
+}
+
+body>p:first-of-type::first-letter{ /* la 1re lettre du précédant sélecteur */
+    float: left; /* Lettrine en utilisant float */
+    font-size: 3.6em; /* taille de police */
+    line-height: 1; /* hauteur de ligne */
+    padding: 0;
+    margin: 0;/* padding et marge à ajuster */
+}
+
+body>p:first-of-type::first-line{ /* la 1re ligne du précédant sélecteur */
+    font-style: italic;/* mise ne capitale du texte */
+}
+
+/* création des colonnes */
+
+/* ajouter la DIV de classe CSS : contenu-suite au code HTML */
+body>aside body>div#contenu-suite{ /* la DIV contenu-suite de classe  **ET** l'élément ASIDE */
+    display:table-cell; /* utilise les tableaux CSS pour les colonnes */
+    vertical-align: top; /* nécessaire... */
+}
+
+body>div#contenu-suite{ /* la DIV contenu-suite */
+    width: 360px;/* fixe sa largeur (prévoir taille des deux colonnes 360+16+266 = 642 ) */
+
+    padding: 0 100px 0 16px;/* padding quand on utilise les tableaux CSS */
+}
+
+body>aside{ /* l'élément ASIDE */
+    width: 266px;/* fixe sa largeur (prévoir taille des deux colonnes 360+16+266 = 642 ) */
+}
+
+/* ajouter la classe CSS : galerie à l'élément UL dans le code HTML */
+body>aside>div#galerie>ul{ /* le UL galerie */
+    list-style: none;/* pas de puces */
+    padding: 0;
+    margin: 0;
+    /* padding et marge à réinitialiser */
+
+}
+
+/* dans le code HTML : supprimer les espaces entre les LI de galerie avec des commentaires HTML */
+
+body>aside>div#galerie>li{ /* les  LI de la galerie */
+display: inline-block;/* mode d'affichage "inline-block" pour les mettre en "ligne". Attention aux espaces ! */
+    margin: 20px;
+    padding: 20px;/* padding et marge à ajuster */
+}
+
+body>aside>div#galerie>li:nth-child(3n) { /* les  LI de la galerie en position 3,6,9... */
+    margin-right: 0; /* enlève la marge droite (valeur 0) */
+                 }
+
+/* Réalisations */
+
+/* ajouter la classe cs : réalisations à l'élément UL dans le code HTML */
+
+{ /* le UL réalisations */
+    #a89f96; /* couleur */
+    0.92em; /* taille de police */
+/* pas de puces */
+/* padding et marge à réinitialiser */
+
+}
+
+{ /* les LI de réalisations */
+/* filet sous le texte */
+/* padding et marge à ajuster */
+
+}
